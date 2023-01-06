@@ -1,9 +1,12 @@
 # LabyrintheRobot
 LabyrintheRobot
 
-	Après nous avoir enseigné les bases de l’architecture en informatique, un projet nous a été confié, celui de développer, grâce à nos nouvelles connaissances, un programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Pour ce faire nous devions utiliser le langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. Ce projet permet d'approfondir nos connaissances grâce à un cas pratique et surtout réel, ce qui le rend d’autant plus complexe.
+![](./ressources/evalbot.jpg)
+
+Après nous avoir enseigné les bases de l’architecture en informatique, un projet nous a été confié, celui de développer, grâce à nos nouvelles connaissances, un programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Pour ce faire nous devions utiliser le langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. Ce projet permet d'approfondir nos connaissances grâce à un cas pratique et surtout réel, ce qui le rend d’autant plus complexe.
 
 *******
+
 Table des matières
 1. [Description du projet](#7description)
 2. [Scénario](#scenario)
@@ -27,8 +30,8 @@ Pour le projet EvalBot, il nous a été demandé de programmer en Assembleur ARM
 
 ## Scénarios réalisés:
 
-Pour mener à bien ce projet, nous avons donc modifié les scénarios, et notamment ajouté un nouveau mode dit “idle” qui permet la transition entre ces derniers. Ceux-ci sont décrits ci-dessous:
-Le mode "idle", est un mode qui s’active automatiquement au démarrage de la carte EvalBot, dans lequel le robot n’effectue aucune action visible, mais attend les ordres avant d'exécuter des tâches. En effet, il lit en continue les entrées sur les deux boutons (Switch 1 et Switch 2) afin d’activer le scénario correspondant au bouton pressé.
+Pour mener à bien ce projet, nous avons donc modifié les scénarios, et notamment ajouté un nouveau mode dit “IDLE” qui permet la transition entre ces derniers. Ceux-ci sont décrits ci-dessous:
+Le mode "IDLE", est un mode qui s’active automatiquement au démarrage de la carte EvalBot, dans lequel le robot n’effectue aucune action visible, mais attend les ordres avant d'exécuter des tâches. En effet, il lit en continue les entrées sur les deux boutons (Switch 1 et Switch 2) afin d’activer le scénario correspondant au bouton pressé.
 Le premier scénario est lancé à l’appui du premier bouton (Switch 1), dans celui-ci : le robot avance en ligne droite jusqu’à la rencontre d’un obstacle (matérialisé) par les bumpers (Bumper 1 et/ou Bumper 2). Après la collision, le robot se met à reculer, et les leds clignotent de manière alternée, très rapidement, pendant un court instant. Enfin, la carte repasse automatiquement en mode “idle” en attente de futures instructions.
 
 Le deuxième scénario, qui est lancé par l’appui de deuxième bouton (Switch 2), fait avancer le robot et allume les deux leds simultanément. À la rencontre d’un obstacle (Bumper 1 et/ou Bumper 2) les deux leds s’éteignent et la carte fait une rotation d’environ 90 degrés dans une direction aléatoire (horaire ou antihoraire) avant de relancer automatiquement le scénario. De plus, tant que les leds de la carte sont allumées, le robot avance en ligne droite, mais il est possible de repasser manuellement en mode “idle” en appuyant sur le premier bouton (Switch 1).
@@ -36,14 +39,15 @@ Nous avons aussi réalisé un organigramme de flux permettant de comprendre le f
 
 *******
 
-<div id='labyrinthe'/>  
+<div id='labyrinthe'/>
 
 ## Labyrinthe Saint-Omer, notre inspiration:
 Le deuxième scénario comprend l’élaboration d’un labyrinthe. Nous avons donc choisi le mystérieux labyrinthe de la cathédrale de Saint-Omer daté de 1716. Nous l’avions particulièrement apprécié pour sa beauté, mais aussi pour la signification qu’il porte :  “les difficultés de la vie sur le chemin qui conduit à Dieu”, ce qui est en parfaite corrélation avec les chemins que devra traverser notre Zombie Robot pour parvenir à sa fin.
 
-
+![](./ressources/labyrinthe.jpg)
 
 Figure 1.1 : Labyrinthe situé sur le sol, à la croisée des nefs de la Cathédrale de Saint-Omer
+
 Pour réaliser ce dernier, nous avons utilisé un logiciel de DAO i.e AutoCAD, afin de modéliser le labyrinthe en 2D et ensuite procéder à la construction de la maquette. Grâce à ce logiciel, nous nous sommes rendu compte que proportionnellement à la taille d’EvalBot le labyrinthe dépasse 10,86 m². Nous avons dû découper le labyrinthe en 4, et nous avons décidé de choisir le dernier 1⁄4 (voir Annexe 1.1 : Labyrinthe découpé en 1⁄4 pour faciliter la conception),  et la taille du labyrinthe fait désormais 2,72 m².
 Etant donné que le labyrinthe est composé de nombreuses pièces, ce plan (Annexe 1.2 : Maquette du labyrinthe et le rendu final) nous servira comme plan de calepinage ce qui facilitera la reproduction de celui-ci. 
 
@@ -55,6 +59,8 @@ Pistolet à colle``
 *******
 
 <div id='problemes'/>  
+
+![](./ressources/kmeans7clusteurs.png)
 
 ## Problèmes rencontrés
 	Durant la réalisation du projet nous avons dû faire face à plusieurs problèmes, qui expliquent notamment les différences entre les scénarios prévus des scénarios réalisés au final.
@@ -78,7 +84,7 @@ Pour la durée de rotation, le problème venait du fait qu’il est beaucoup plu
 <div id='gpio'/>  
 
 ## Explication des GPIO:
-	Pour les différents périphériques il a fallu activées certain ports : le port D pour les boutons (0x40007000), le port E pour les bumpers (0x40024000), le ports F pour les leds (0x40025000) et le port H pour les moteurs (0x40027000). Il a fallu aussi activer les GPIO nécessaires pour faire fonctionner les périphériques notamment pour les boutons et les bumpers : Input PUR et Output DEN. Et pour les leds : Output DIR, Output DEN et Output DR2R. Ces GPIO sont nécessaires au bon fonctionnement des périphériques.
+Pour les différents périphériques il a fallu activées certain ports : le port D pour les boutons (0x40007000), le port E pour les bumpers (0x40024000), le ports F pour les leds (0x40025000) et le port H pour les moteurs (0x40027000). Il a fallu aussi activer les GPIO nécessaires pour faire fonctionner les périphériques notamment pour les boutons et les bumpers : Input PUR et Output DEN. Et pour les leds : Output DIR, Output DEN et Output DR2R. Ces GPIO sont nécessaires au bon fonctionnement des périphériques.
 
 *******
 
