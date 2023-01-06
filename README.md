@@ -3,7 +3,7 @@ LabyrintheRobot
 
 ![](./Images/evalbot.jpg)
 
-Après nous avoir enseigné les bases de l’architecture en informatique, un projet nous a été confié, celui de développer, grâce à nos nouvelles connaissances, un programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Pour ce faire nous devions utiliser le langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. Ce projet permet d'approfondir nos connaissances grâce à un cas pratique et surtout réel, ce qui le rend d’autant plus complexe.
+Programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Codé en langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. 
 
 *******
 
@@ -17,9 +17,9 @@ Table des matières
 
 <div id='7description'/>  
 
-## Description du projet
+## Description du projet EvalBot
 
-Pour le projet EvalBot, il nous a été demandé de programmer en Assembleur ARMv7, pour la carte Texas Instrument EvalBot équipé d’un Cortex-M3, un programme qui permettrait d’exploiter plusieurs éléments de la carte. Soit au moins les leds (2 leds présentes sur la carte), les moteurs (2 moteurs permettant de faire se déplacer la carte), les boutons (2 boutons sur le dessus de la carte) et enfin les bumpers (2 bumpers sur l’avant de la carte pour notamment détecter les collisions).
+Programmation en Assembleur ARMv7, pour la carte **Texas Instrument EvalBot** équipé d’un **Cortex-M3**, un programme permettant d’exploiter plusieurs éléments de la carte. Soit au moins les leds (2 leds présentes sur la carte), les moteurs (2 moteurs permettant de faire se déplacer la carte), les boutons (2 boutons sur le dessus de la carte) et enfin les bumpers (2 bumpers sur l’avant de la carte pour notamment détecter les collisions).
 Pour ce faire, nous avons réfléchi à un scénario qui pourrait exploiter les composants requis, voire plus. De là sont sorties nos idées de scénarios explicités ci-dessous.
 
 *******
@@ -29,8 +29,11 @@ Pour ce faire, nous avons réfléchi à un scénario qui pourrait exploiter les 
 ## Scénarios prévus:
 
 Lors de notre réflexion nous avons pensé à faire plusieurs scénarios qui seront enclenchés par l’appui sur un des deux boutons présents sur la carte. Et nous avons donc trouvé ces deux idées de scénarios pour l’EvalBot:
+
 ● Le premier, quand on appuie sur le premier bouton (Switch 1) la carte avance en ligne droite jusqu’à ce qu’il rencontre un obstacle matérialisé par l’appui sur un ou les deux bumpers (Bumper 1 et/ou Bumper 2). À ce moment le robot s’arrête et affiche un message sur l’écran OLED de la carte. Originellement appelé “DanceBot”, une appellation comme “CrashBot” serait plus adaptée.
+
 ● Le deuxième, à l’appui du deuxième bouton (Switch 2) l’EvalBot avance aussi en ligne droite, mais à la rencontre d’un obstacle il réalise une action différente: la carte recule pendant un court instant durant lequel le buzzer présent sur la carte s’active, puis il tourne sur lui-même pendant un temps aléatoire avant de reprendre son chemin et attendre à nouveau la rencontre avec un obstacle. Ce deuxième scénario est nommé le “ZombieBot” car il a pour but de résoudre un labyrinthe de manière aléatoire à l’image d’un zombie.
+
 Nous nous sommes rendu compte, lors du développement, que ces scénarios n’étaient pas adéquats avec la consigne qui nous demandait d’utiliser les leds (ce qui n’était pas le cas dans les deux scénarios), de plus nous avions sous-estimé la complexité de la programmation avec un langage de très bas niveau comme l’Assembleur ARMv7. C’est pour cela que nos scénarios finaux sont légèrement différents de ceux listés précédemment.
 
 ## Scénarios réalisés:
@@ -48,7 +51,7 @@ Organigramme de flux permettant de comprendre le fonctionnement du programme pr�
 <div id='labyrinthe'/>
 
 ## Labyrinthe Saint-Omer, notre inspiration:
-Le deuxième scénario comprend l’élaboration d’un labyrinthe. Nous avons donc choisi le mystérieux labyrinthe de la cathédrale de Saint-Omer daté de 1716. Nous l’avions particulièrement apprécié pour sa beauté, mais aussi pour la signification qu’il porte :  “les difficultés de la vie sur le chemin qui conduit à Dieu”, ce qui est en parfaite corrélation avec les chemins que devra traverser notre Zombie Robot pour parvenir à sa fin.
+Le deuxième scénario comprend l’élaboration d’un labyrinthe. Nous avons donc choisi le mystérieux **labyrinthe de la cathédrale de Saint-Omer, daté de 1716*. Nous l’avions particulièrement apprécié pour sa beauté, mais aussi pour la signification qu’il porte :  “les difficultés de la vie sur le chemin qui conduit à Dieu”, ce qui est en parfaite corrélation avec les chemins que devra traverser notre Zombie Robot pour parvenir à sa fin.
 
 ![](./Images/labyrinthe.jpg)
 
