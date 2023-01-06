@@ -43,7 +43,7 @@ Le deuxième scénario, qui est lancé par l’appui de deuxième bouton (Switch
 
 *******
 Organigramme de flux permettant de comprendre le fonctionnement du programme présent sur l’EvalBot.
-![](./Images/structure.jpg)
+![](./Images/structure.png)
 *******
 <div id='labyrinthe'/>
 
