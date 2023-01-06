@@ -1,7 +1,7 @@
 # LabyrintheRobot
 LabyrintheRobot
 
-![](./ressources/evalbot.jpg)
+![](./images/evalbot.jpg)
 
 Après nous avoir enseigné les bases de l’architecture en informatique, un projet nous a été confié, celui de développer, grâce à nos nouvelles connaissances, un programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Pour ce faire nous devions utiliser le langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. Ce projet permet d'approfondir nos connaissances grâce à un cas pratique et surtout réel, ce qui le rend d’autant plus complexe.
 
@@ -44,7 +44,7 @@ Nous avons aussi réalisé un organigramme de flux permettant de comprendre le f
 ## Labyrinthe Saint-Omer, notre inspiration:
 Le deuxième scénario comprend l’élaboration d’un labyrinthe. Nous avons donc choisi le mystérieux labyrinthe de la cathédrale de Saint-Omer daté de 1716. Nous l’avions particulièrement apprécié pour sa beauté, mais aussi pour la signification qu’il porte :  “les difficultés de la vie sur le chemin qui conduit à Dieu”, ce qui est en parfaite corrélation avec les chemins que devra traverser notre Zombie Robot pour parvenir à sa fin.
 
-![](./ressources/labyrinthe.jpg)
+![](./images/labyrinthe.jpg)
 
 Figure 1.1 : Labyrinthe situé sur le sol, à la croisée des nefs de la Cathédrale de Saint-Omer
 
