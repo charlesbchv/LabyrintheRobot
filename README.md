@@ -1,5 +1,4 @@
 # LabyrintheRobot
-LabyrintheRobot
 
 ![](./Images/evalbot.jpg)
 
