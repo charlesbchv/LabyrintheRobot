@@ -3,6 +3,17 @@ LabyrintheRobot
 
 ![](./Images/evalbot.jpg)
 
+<p align="center"> 
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/charlesbchv/LabyrintheRobot?style=plastic&color=blue">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/charlesbchv/LabyrintheRobot?style=plastic&color=violet">
+<img alt="Last Commit" src="https://img.shields.io/github/last-commit/charlesbchv/LabyrintheRobot?style=plastic&color=yellow">
+<img alt="Bower" src="https://img.shields.io/bower/l/space?style=plastic&color=acre">
+</p>
+<p align="center">
+   <img alt="ViewCount" src="https://views.whatilearened.today/views/github/charlesbchv/LabyrintheRobot.svg">
+</p>
+
+
 Programme pouvant être utilisé sur les cartes d'évaluations **Texas Instrument EvalBot**. Codé en langage le plus bas niveau (juste au-dessus du binaire directement) disponible sur cette carte équipée un SoC (System on a Chip) Cortex-M3. 
 
 *******
